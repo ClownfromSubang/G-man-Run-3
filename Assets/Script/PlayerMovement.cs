@@ -16,6 +16,11 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
+    void StartO()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Update()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
