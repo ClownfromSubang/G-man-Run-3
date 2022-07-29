@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        //Grabs references for rigidbody and animator from game object.
         body = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -26,16 +25,14 @@ public class PlayerMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
 
-        //Flip player when facing left/right.
         if (horizontalInput > 0.01f)
             transform.localScale = Vector3.one;
         else if (horizontalInput < -0.01f)
             transform.localScale = new Vector3(-1, 1, 1);
 
-        if (Input.GetKey(KeyCode.Space) && grounded)
+        if (Input.GetMouseButton(0) && grounded)
             Jump();
 
-        //sets animation parameters
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", grounded);
     }
