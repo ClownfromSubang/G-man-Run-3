@@ -20,6 +20,8 @@ public class loadLevel : MonoBehaviour
         }
     }
 
+
+
     void LoadScene()
     {
         if (useIntegerToLoadLevel)
